@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 const express = require("express");
 const cors = require("cors");
-const { send, transporter } = require("../smtp.js");
+const { send, transporter } = require("./smtp.js");
 const bodyParser = require("body-parser");
 
 const router = express();
