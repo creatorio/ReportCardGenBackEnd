@@ -44,3 +44,5 @@ router.post("/verify-otp", (req, res) => {
 router.listen(4000, () => {
   console.log(`Example router listening on port ${4000}`);
 });
+
+module.exports = router;
