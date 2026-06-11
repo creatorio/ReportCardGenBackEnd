@@ -12,7 +12,6 @@ router.use(express.json());
 const otpStore = new Map(); // Store temporary OTPs (use Redis or DB in production)
 
 router.post("/send-otp", async (req, res) => {
-  console.log(req);
   const { email } = req.body;
   const otp = crypto.randomInt(100000, 999999).toString();
 
@@ -42,7 +41,7 @@ router.post("/verify-otp", (req, res) => {
 });
 
 router.listen(4000, () => {
-  console.log(`Example router listening on port ${4000}`);
+  console.log(`listening on port ${4000}`);
 });
 
 module.exports = router;
