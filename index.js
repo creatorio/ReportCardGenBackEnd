@@ -1,9 +1,9 @@
+require("dotenv").config();
 const crypto = require("crypto");
 const express = require("express");
 const cors = require("cors");
 const { send, transporter } = require("./smtp.js");
 const bodyParser = require("body-parser");
-require("dotenv").config();
 
 // Use a long, secure, and private secret key (keep this in your environment variables)
 const SECRET_KEY_TEMP = process.env.SECRET_KEY;
@@ -62,14 +62,6 @@ function verifyOTP(identifier, providedOtp, secureToken) {
   );
 }
 
-// --- Usage Example ---
-
-// 1. User requests OTP
-
-// 2. User submits the OTP and the secure token back to the server
-const isVerified = verifyOTP("user@example.com", otp, secureToken);
-console.log("Is OTP verified?", isVerified); // true
-
 const router = express();
 router.use(bodyParser.json());
 router.use(cors({ origin: "*" }));
@@ -95,7 +87,6 @@ router.post("/verify-otp", (req, res) => {
   const record = otpStore.get(email);
 
   const isVerified = verifyOTP(email, otp, secureToken);
-  console.log("Is OTP verified?", isVerified); // true
   if (!isVerified) {
     return res.status(400).json({ error: "Invalid or expired OTP" });
   }
