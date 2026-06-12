@@ -8,7 +8,8 @@ require("dotenv").config();
 const crypto = require("crypto");
 
 // Use a long, secure, and private secret key (keep this in your environment variables)
-const SECRET_KEY = process.env.SECRET_KEY;
+const SECRET_KEY_TEMP = process.env.SECRET_KEY;
+const SECRET_KEY = Buffer.from(SECRET_KEY_TEMP, "base64");
 
 /**
  * 1. Generate OTP and Hash
