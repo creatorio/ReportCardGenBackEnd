@@ -84,7 +84,6 @@ router.post("/send-otp", async (req, res) => {
 
 router.post("/verify-otp", (req, res) => {
   const { email, otp, secureToken } = req.body;
-  const record = otpStore.get(email);
 
   const isVerified = verifyOTP(email, otp, secureToken);
   if (!isVerified) {
