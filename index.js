@@ -5,8 +5,6 @@ const { send, transporter } = require("./smtp.js");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
-const crypto = require("crypto");
-
 // Use a long, secure, and private secret key (keep this in your environment variables)
 const SECRET_KEY_TEMP = process.env.SECRET_KEY;
 const SECRET_KEY = Buffer.from(SECRET_KEY_TEMP, "base64");
