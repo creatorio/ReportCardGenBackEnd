@@ -1,2 +1,2 @@
 # Notice
-I will not be working on this because i want to work on other stuff
+Basic version completed may transform into full blown school system sometime in the future
